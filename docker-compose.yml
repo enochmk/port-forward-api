@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+    forward-api:
+        container_name: forward-api
+        build: ./
+        image: forward-api
+        ports:
+            - "6006:6006"
+        volumes:
+            - ./logs:/app/logs
+        environment:
+            - NODE_ENV=production
+            - PORT=6006
+        env_file:
+            - ./.env
+        restart: always

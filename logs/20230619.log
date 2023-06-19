@@ -1,0 +1,2 @@
+{"timestamp":"2023-06-19 15:15:12","service":"FORWARD-PORT-API","level":"info","label":"Middleware","message":"Configured middleware!","metadata":{}}
+{"timestamp":"2023-06-19 15:15:12","service":"FORWARD-PORT-API","level":"info","label":"Server","message":"Server listening in mode: development on port: 6006","metadata":{}}

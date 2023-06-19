@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "sourceMap": true,
+    "outDir": "build",
+    "strict": true,
+    "lib": ["ESNext"],
+    "noImplicitAny": false,
+    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "esModuleInterop": true
+  }
+}
