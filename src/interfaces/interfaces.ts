@@ -1,6 +1,6 @@
 export interface IRequest {
   requestUrl: string;
   requestBody: object;
-  requestHeader: object;
+  requestHeaders: object;
   requestMethod: string;
 }

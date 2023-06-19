@@ -9,7 +9,7 @@ const forwardController: RequestHandler = async (req, res) => {
   const data = req.body as IRequest;
   const config: AxiosRequestConfig = {
     url: data.requestUrl,
-    headers: data.requestHeader,
+    headers: data.requestHeaders,
     method: data.requestMethod,
     data: data.requestBody,
   };
