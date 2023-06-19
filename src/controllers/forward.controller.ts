@@ -1,23 +1,22 @@
 import { RequestHandler } from 'express';
 import axios, { AxiosRequestConfig } from 'axios';
 import { getLogger } from '../libs/logger';
+import { IRequest } from '../interfaces/interfaces';
 
 const logger = getLogger('ForwardController');
 
 const forwardController: RequestHandler = async (req, res) => {
-  const data: AxiosRequestConfig = {
-    url: req.body.requestUrl,
-    method: req.method,
-    headers: req.headers,
-    data: req.body,
+  const data = req.body as IRequest;
+  const config: AxiosRequestConfig = {
+    url: data.requestUrl,
+    headers: data.requestHeader,
+    method: data.requestMethod,
+    data: data.requestBody,
   };
 
-  // ? remove requestUrl from the body
-  delete req.body.requestUrl;
-
-  logger.verbose(`Forwarding request to ${data.url}`, data);
-  const response = await axios.request(data);
-  logger.info(`Response from ${data.url}`, response.data);
+  logger.verbose(`Forwarding request to ${data.requestUrl}`, data);
+  const response = await axios.request(config);
+  logger.info(`Returning Forward Response`, response.data);
 
   return res.send(response.data);
 };
