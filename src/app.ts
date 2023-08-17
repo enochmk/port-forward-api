@@ -20,7 +20,7 @@ export const configureMiddlewares = (app: Application) => {
 
   app.use(morgan('dev'));
   app.use(cors(corOptions));
-  app.use(express.json());
+  app.use(express.json({ limit: '50mb' }));
   app.use(helmet());
   app.use(hpp());
   app.use(rtracer.expressMiddleware());
