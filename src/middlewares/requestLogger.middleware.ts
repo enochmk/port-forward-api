@@ -17,14 +17,14 @@ const requestLoggerMiddleware = (req: Request, res: Response, next: NextFunction
     ip: res.locals.clientIp,
     method: req.method,
     url: req.originalUrl,
-    body: req.body,
+    headers: req.headers,
     params: req.params,
     query: req.query,
-    headers: req.headers,
+    body: req.body,
   };
 
   logger.info('request logged', logInfo);
-  next();
+  return next();
 };
 
 export default requestLoggerMiddleware;

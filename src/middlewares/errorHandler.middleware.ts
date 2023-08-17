@@ -54,7 +54,7 @@ const errorHandler = (error: any, req: Request, res: Response, _next: NextFuncti
       };
 
       errorLog.message = error.response?.data?.message || message;
-      logger.info('Forwarding error response', errorLog);
+      logger.warn(errorLog.message, errorLog);
       return res.status(error.response.status).json(error.response.data);
     }
 
@@ -90,7 +90,7 @@ const errorHandler = (error: any, req: Request, res: Response, _next: NextFuncti
 
   errorLog.response = response;
   errorLog.error.stack = error.stack;
-  logger.error(errorLog);
+  logger.error(response.message, errorLog);
   return res.status(statusCode).json(response);
 };
 
